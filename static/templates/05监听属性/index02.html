@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>监听属性：监听属性 watch，我们可以通过 watch 来响应数据的变化,例如：同步将千米和米互转</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="computed_props">
+    千米: <input type="text" v-model="kilometers">
+    米: <input type="text" v-model="meters">
+  </div>
+  <p id="info"></p>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el:'#computed_props',
+      data:{
+        kilometers:0,
+        meters:0
+      },
+      method:{
+      },
+      computed:{
+      },
+      watch:{
+        kilometers:function (val) {
+          this.kilometers = val;
+          this.meters = this.kilometers * 1000;
+        },
+        meters:function (val) {
+          this.kilometers = val /1000;
+          this.meters = val;
+        }
+      }
+    });
+    // $watch 是一个实例方法
+    vm.$watch('kilometers', function (newValue,oldValue) {
+      // 这个回调将在vm.kilometers改变后调用
+      document.getElementById('info').innerHTML = "修改前值为: " + oldValue + ", 修改后值为: " + newValue;
+    });
+  </script>
+</body>
+</html>

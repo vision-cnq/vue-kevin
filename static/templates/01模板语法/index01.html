@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index01</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="vue_01">
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>{{details()}}</h1>
+  </div>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#vue_01',
+      data:{
+        site:"KEVIN学习实例",
+        url:"www.runoob.com",
+        alexa:"10000"
+      },
+      methods:{
+        details:function(){
+          return this.site + " - 学的不仅仅是技术，更是梦想！"
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

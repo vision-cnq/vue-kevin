@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令：钩子函数，在不需要其它钩子的时候，可以对函数进行简写</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app04">
+      <div v-runoob="{color: 'green', text:'菜鸟教程'}"></div>
+    </div>
+
+    <script>
+      // 在不需要别的钩子时，简写函数
+      Vue.directive('runoob',function (el,binging) {
+        // 简写方式设置文本及背景颜色
+        el.innerHTML = binging.value.text
+        el.style.backgroundColor = binging.value.color
+      })
+
+      new Vue({
+        el:'#app04'
+      })
+    </script>
+</body>
+</html>

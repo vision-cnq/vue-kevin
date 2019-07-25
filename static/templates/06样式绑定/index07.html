@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：直接绑定到一个样式对象，让模板更清晰</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app07">
+    <div v-bind:style="styleObject">测试咯</div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app07',
+      data:{
+        styleObject:{
+          color:'green',
+          fontSize:'30px'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

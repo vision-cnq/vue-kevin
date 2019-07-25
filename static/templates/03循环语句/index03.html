@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>循环语句：v-for，迭代对象</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app03">
+    <!-- 通过一个对象的属性来迭代数据 -->
+    <ul>
+      <li v-for="value in object">
+        {{value}}
+      </li>
+    </ul>
+
+    <!-- 通过一个对象的属性来迭代数据，也可以使用第二个参数作为属性名 -->
+    <ul>
+      <li v-for="(value,key) in object">
+        {{key}} : {{value}}
+      </li>
+    </ul>
+
+    <!-- 通过一个对象的属性来迭代数据，也可以使用第二个参数作为属性名，第三个参数作为索引0 -->
+    <ul>
+      <li v-for="(value,key,index) in object">
+        {{index}} . {{key}} : {{value}}
+      </li>
+    </ul>
+  </div>
+
+
+<script>
+  new Vue({
+    el:'#app03',
+    data:{
+      object: {
+        name:'菜鸟教程',
+        url:'http://www.runoob.com',
+        slogan:'学的不仅仅是技术，更是梦想'
+      }
+    }
+  })
+</script>
+</body>
+</html>

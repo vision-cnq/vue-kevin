@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>计算属性：在处理一些复杂逻辑时是很有用的</title>
+  <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app01">
+  {{ message.split('').reverse().join('')}}
+</div>
+
+<script>
+
+  new Vue({
+    el:'#app01',
+    data:{
+      message: 'Ronoob!'
+    }
+  })
+
+</script>
+</body>
+</html>

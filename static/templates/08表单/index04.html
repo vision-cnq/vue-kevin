@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单：下拉列表的双向数据绑定</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app04">
+    <select v-model="selected" name="fruit">
+      <option value="">选择一个网站</option>
+      <option value="www.runoob.com">Runoob</option>
+      <option value="www.google.com">Google</option>
+    </select>
+
+    <div id="output">
+      选择的网站是: {{selected}}
+    </div>
+  </div>
+
+  <script>
+    // 复选框的双向数据绑定
+    new Vue({
+      el:'#app04',
+      data:{
+        selected:''
+      }
+    });
+  </script>
+
+</body>
+</html>

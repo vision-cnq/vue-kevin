@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>选项合并</title>
+    <script src="../../js/vue.js"></script>
+    <!-- 当组件和混入对象含有同名选项时，这些选项将于恰当的方式混合 -->
+</head>
+<body>
+  <div id="databinding"></div>
+  <script type="text/javascript" >
+    var mixin = {
+      created: function () {
+        document.write('混入调用'+'<br>')
+      }
+    }
+    new Vue({
+      mixins:[mixin],
+        created: function () {
+          document.write('组件调用'+'<br>')
+        }
+    });
+  </script>
+</body>
+</html>

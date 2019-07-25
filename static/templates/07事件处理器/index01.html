@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理器：事件监听可以使用 v-on 指令</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app01">
+      <button v-on:click="counter += 1">增加1</button>
+      <p>这个按钮被点击了{{counter}}次</p>
+    </div>
+
+    <script>
+      new Vue({
+        el:'#app01',
+        data:{
+          counter:0
+        }
+      });
+    </script>
+</body>
+</html>

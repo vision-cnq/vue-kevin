@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>循环语句：v-for，在模版中使用</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app02">
+    <!-- v-for指令需要以site in sites形式的特殊语法，sites是源数据数组并且site是数组元素迭代的别名 -->
+    <ul>
+      <template v-for="site in sites">
+        <li>{{site.name}}</li>
+        <li>------</li>
+      </template>
+    </ul>
+  </div>
+
+<script>
+  new Vue({
+    el:'#app02',
+    data:{
+      sites:[
+        {name:'Runnob'},
+        {name:'Google'},
+        {name:'TaoBao'}
+      ]
+    }
+  })
+</script>
+</body>
+</html>

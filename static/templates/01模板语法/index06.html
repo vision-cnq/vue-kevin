@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法：指令带有v-前缀的特殊属性，参数</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app06">
+  <!-- v-if指令根据表达式seen的值决定是否插入p元素 -->
+  <p v-if="seen">现在你看到我了</p>
+  <template v-if="ok">
+    <h1>菜鸟教程</h1>
+    <p>学的不仅仅是技术，更是梦想！</p>
+  </template>
+</div>
+
+<div id="app07">
+  <!-- v-bind:href将该元素与表达式url的值绑定 -->
+  <pre><a v-bind:href="url">菜鸟教程</a> </pre>
+  <!-- 缩写版的v-bind:href -->
+  <pre><a :href="urli">菜鸟</a></pre>
+</div>
+
+<script>
+  new Vue({
+    el: '#app06',
+    data: {
+      seen: true,
+      ok: true
+    }
+  });
+
+  new Vue({
+    el:'#app07',
+    data:{
+      url:'http://www.runoob.com',
+      urli:'http://www.runoob.com'
+    }
+
+  })
+</script>
+</body>
+</html>

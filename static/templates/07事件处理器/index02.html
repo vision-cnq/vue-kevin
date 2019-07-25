@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理器：v-on 可以接收一个定义的方法来调用</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app02">
+      <!-- greet是在下面定义的方法名 -->
+      <button v-on:click="greet">Greet</button>
+    </div>
+
+    <script>
+      var app02 = new Vue({
+        el: '#app02',
+        data: {
+          name: 'Vue.js'
+        },
+        // 在methods对象中定义方法
+        methods: {
+          greet: function (event) {
+            // this在方法里指当前Vue实例
+            alert('Hello' + this.name)
+            // event是原生DOM事件
+            if (event) {
+              alert(event.target.tagName)
+            }
+          }
+        }
+      })
+      // 也可以用JavaScript直接调用方法
+      app02.greet()
+    </script>
+</body>
+</html>

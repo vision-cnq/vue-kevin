@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:v-runoob="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令：钩子函数</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app03" v-runoob:hello.a.b="message">
+    </div>
+
+    <script>
+      Vue.directive('runoob',{
+        bind:function (el,binding,vnode) {
+          var s = JSON.stringify
+          el.innerHTML =
+            'name: '+s(binding.name)+'<br>'+
+            'value: '+s(binding.value)+'<br>'+
+            'expression: '+s(binding.expression)+'<br>'+
+            'argument: '+s(binding.argument)+'<br>'+
+            'modifiers: '+s(binding.modifiers)+'<br>'+
+            'vnode keys: '+Object.keys(vnode).join(',')
+        }
+      })
+
+      new Vue({
+        el:'#app03',
+        data:{
+          message:'教程'
+        }
+      })
+    </script>
+</body>
+</html>

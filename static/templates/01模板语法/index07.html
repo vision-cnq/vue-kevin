@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法：指令带有v-前缀的特殊属性，修饰符，用户输入</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app07">
+    <!-- v-model用户输入,用来做双向数据绑定，更新绑定的元素的值 -->
+    <p>{{message}}</p>
+    <input v-model="message">
+  </div>
+
+  <div id="app08">
+    <p>{{message}}</p>
+    <!-- 按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应。 -->
+    <button v-on:click="reverseMessage">反转字符串</button>
+    <!-- 缩写版的v-on:click -->
+    <button @click="reverseMessagei">反转</button>
+  </div>
+
+<script>
+  new Vue({
+    el:'#app07',
+    data:{
+      message:'Runoob'
+    }
+  })
+
+  new Vue({
+    el:'#app08',
+    data:{
+      message:'Runnob'
+    },
+    methods:{
+      reverseMessage:function(){
+        this.message = this.message.split('').reverse().join('')
+      },
+      reverseMessagei:function(){
+        this.message = this.message.split('').reverse().join('')
+      },
+
+    }
+
+
+  })
+</script>
+</body>
+</html>

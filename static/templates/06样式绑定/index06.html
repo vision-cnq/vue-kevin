@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：在 v-bind:style 直接设置样式</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<style>
+  .text-danger {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  .active {
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+</style>
+
+<body>
+  <div id="app06">
+    <div v-bind:style="{color:activeColor, fontSize:fontSize + 'px'}">测试咯</div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app06',
+      data:{
+        activeColor:'green',
+        fontSize:30
+      }
+    });
+  </script>
+</body>
+</html>

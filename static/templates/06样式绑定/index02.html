@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：在对象中传入更多属性用来动态切换多个 class</title>
+    <!-- text-danger类背景颜色覆盖了active类的背景色 -->
+    <script src="../../js/vue.js"></script>
+</head>
+  <style>
+    .active{
+      width:100px;
+      height:100px;
+      background:green;
+    }
+    .text-danger{
+      background: red;
+    }
+  </style>
+<body>
+  <div id="app02">
+    <div class="static"
+         v-bind:class="{active:isActive,'text-danger':hasError}">
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app02',
+      data:{
+        isActive:true,
+        hasError:true
+      }
+    });
+  </script>
+</body>
+</html>

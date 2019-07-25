@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：直接绑定数据里的一个对象</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<style>
+  .active{
+    width:100px;
+    height:100px;
+    background:green;
+  }
+  .text-danger{
+    background: red;
+  }
+</style>
+
+<body>
+  <div id="app03">
+    <div v-bind:class="classObject"></div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app03',
+      data:{
+        classObject:{
+          active:true,
+          'text-danger':true
+        }
+      }
+    });
+  </script>
+</body>
+</html>

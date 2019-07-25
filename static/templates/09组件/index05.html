@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>组件：将 v-bind 指令将 todo 传到每一个重复的组件中</title>
+    <!-- prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来 -->
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app05">
+    <ol>
+      <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+    </ol>
+  </div>
+
+  <script>
+     Vue.component('todo-item',{
+       props:['todo'],
+       template:'<li>{{todo.text}}</li>'
+     })
+
+     // 创建实例
+     new Vue({
+       el:'#app05',
+       data:{
+         sites:[
+           {text:'Runoob'},
+           {text:'Google'},
+           {text:'Taobao'}
+         ]
+       }
+     })
+  </script>
+</body>
+</html>

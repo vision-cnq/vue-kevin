@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单：单选按钮的双向数据绑定</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app03">
+    <input type="radio" id="runoob" value="Runoob" v-model="picked">
+    <label for="runoob">Runoob</label>
+    <br>
+    <input type="radio" id="google" value="Google" v-model="picked">
+    <label for="google">Google</label>
+    <br>
+    <span>选中的值: {{picked}}</span>
+  </div>
+
+  <script>
+    // 复选框的双向数据绑定
+    new Vue({
+      el:'#app03',
+      data:{
+        picked:'Runoob'
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：v-bind:style 可以使用数组将多个样式对象应用到一个元素上</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app08">
+    <div v-bind:style="[baseStyles,overridingStyles]">测试咯</div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app08',
+      data:{
+        baseStyles:{
+          color:'green',
+          fontSize:'50px'
+        },
+        overridingStyles:{
+          'font-weight':'bold'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

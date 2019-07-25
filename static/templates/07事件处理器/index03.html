@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理器：除了直接绑定到一个方法，也可以用内联 JavaScript 语句</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app03">
+      <button v-on:click="say('hi')">Say Hi</button>
+      <button v-on:click="say('what')">Say What</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app03',
+        // 在methods对象中定义方法
+        methods: {
+          say: function (message) {
+            alert(message)
+          }
+        }
+      });
+    </script>
+</body>
+</html>

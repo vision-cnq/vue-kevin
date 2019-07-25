@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:v-on="">
+<head>
+    <meta charset="UTF-8">
+    <title>组件：实例中子组件已经和它外部完全解耦了。它所做的只是触发一个父组件关心的内部事件</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app06">
+    <div id="counter-event-example">
+      <p>{{ total }}</p>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+    </div>
+
+  </div>
+
+  <script>
+     Vue.component('button-counter',{
+       template:'<button v-on:click="incrementHandler">{{ counter }}</button>',
+       data:function () {   // data是一个函数，并非对象
+         return {
+           counter:0
+         }
+       },
+       methods:{
+         incrementHandler: function (){
+           this.counter += 1
+           this.$emit('increment')  // 触发事件
+         }
+       }
+     });
+
+     // 创建实例
+     new Vue({
+       el:'#counter-event-example',
+       data:{
+         total:0
+       },
+       methods:{
+         incrementTotal:function (){
+            this.total += 1
+         }
+       }
+     })
+  </script>
+</body>
+</html>

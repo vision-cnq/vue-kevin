@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>条件判断：v-if</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p v-if="seen">现在你可以看不到我了</p>
+    <template v-if="ok">
+      <h1>菜鸟教程</h1>
+      <p>学的不仅仅是技术，更是梦想</p>
+    </template>
+  </div>
+
+<script>
+  new Vue({
+    el:'#app',
+    data:{
+      seen:false,
+      ok:true
+    }
+  })
+</script>
+</body>
+</html>

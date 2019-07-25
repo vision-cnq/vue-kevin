@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>条件判断：v-else</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app02">
+    <div v-if="Math.random() > 0.5">
+      Sorry
+    </div>
+    <div v-else>
+      Not Sorry
+    </div>
+  </div>
+
+<script>
+  new Vue({
+    el:'#app02'
+  })
+</script>
+</body>
+</html>

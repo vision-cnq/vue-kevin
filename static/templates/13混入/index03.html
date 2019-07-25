@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>如果methods选项中有相同的函数名，则Vue实例优先级会较高</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="databinding"></div>
+  <script type="text/javascript">
+    var mixin = {
+      methods:{
+        helloworld:function(){
+          document.write('HelloWorld 方法'+'<br>');
+        },
+        samemethod:function(){
+          document.write('Mixin: 相同方法名'+'<br>');
+        }
+      }
+    };
+    // methods选项中如果碰到相同的函数名则Vue实例有更高的优先级会执行。
+    var vm = new Vue({
+      mixins: [mixin],
+      methods:{
+        start:function () {
+          document.write('start 方法'+'<br>');
+        },
+        samemethod:function(){
+          document.write('Main: 相同方法名'+'<br>');
+        }
+      }
+    });
+    vm.helloworld();
+    vm.start();
+    vm.samemethod();
+
+  </script>
+</body>
+</html>

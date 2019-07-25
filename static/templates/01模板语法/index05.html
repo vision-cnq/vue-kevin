@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法：表达式</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app05">
+  <!-- 表达式 -->
+  {{5+5}}<br>
+  {{ ok ? 'YES' : 'NO' }}<br>
+  {{ message.split('').reverse().join('') }}
+  <div v-bind:id="'list-' + id">菜鸟教程</div>
+</div>
+
+<script>
+  new Vue({
+    el: '#app05',
+    data: {
+      ok: true,
+      message: 'RUNOOB',
+      id : 1
+    }
+  })
+</script>
+</body>
+</html>

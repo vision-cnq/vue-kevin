@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS动画</title>
+    <!-- CSS动画用法类似CSS过渡，但是在动画中v-enter类名在节点插入DOM后不会立即删除，而是在animationend时间触发时删除 -->
+    <script src="../../js/vue.js"></script>
+  <style>
+    .bounce-enter-active {
+      animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+      animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+    <div id="databinding">
+      <button v-on:click="show = !show">点我</button>
+      <transition name="bounce">
+        <p v-if="show">技术，更是梦想！！！</p>
+      </transition>
+    </div>
+    <script type="text/javascript">
+      new Vue({
+        el:'#databinding',
+        data:{
+          show:true
+        }
+      })
+    </script>
+</body>
+</html>

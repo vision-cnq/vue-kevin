@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过渡的类名</title>
+    <script src="../../js/vue.js"></script>
+    <link rel="stylesheet" href="../../css/animate.css">
+</head>
+<body>
+    <div id="databinding">
+      <button v-on:click="show = !show">点我</button>
+      <transition
+        name="custom-classes-transition"
+        enter-active-class="animated tada"
+        leave-active-class="animated bounceOutRight">
+        <p v-if="show">技术与梦想。。。</p>
+      </transition>
+    </div>
+
+<script type="text/javascript" >
+  new Vue({
+    el:'#databinding',
+    data:{
+      show:true
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：可以在这里绑定返回对象的计算属性。这是一个常用且强大的模式</title>
+    <script src="../../js/vue.js"></script>
+</head>
+
+<style>
+  .base{
+    width:100px;
+    height:100px;
+  }
+  .active{
+    background:green;
+  }
+  .text-danger{
+    background: red;
+  }
+</style>
+
+<body>
+  <div id="app04">
+    <div v-bind:class="classObject"></div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app04',
+      data:{
+        isActive: true,
+        error:{
+          value:true,
+          type:'fatal'
+        }
+      },
+      computed:{
+        classObject:function (){
+          return {
+            base: true,
+            active : this.isActive && !this.error.value,
+            'text-danger': this.error.value && this.error.type === 'fatal',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

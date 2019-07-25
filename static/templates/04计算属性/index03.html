@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>计算属性：默认只有getter，但如果需要可以提供一个setter</title>
+  <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app03">
+    <p>{{site}}</p>
+  </div>
+
+<script>
+
+  var vm = new Vue({
+    el:'#app03',
+    data:{
+      name: 'Google',
+      url:'http://www.google.com'
+    },
+
+    computed: {
+      site:{
+        // getter
+        get:function(){
+          return this.name + ' ' + this.url
+        },
+        // setter
+        set:function(newValue){
+          var names = newValue.split(' ')
+          this.name = names[0]
+          this.url = names[names.length - 1]
+        }
+      }
+    }
+  })
+  // 调用setter，vm.name和vm.url也会被对应更新
+  vm.site = '教程 http://www.runoob.com';
+  document.write('name: ' + vm.name);
+  document.write('<br>');
+  document.write('url: ' + vm.url);
+
+</script>
+</body>
+</html>

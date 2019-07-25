@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.delete: 用于删除动态添加的属性</title>
+    <script src="../../js/vue.js"></script>
+    <!-- 语法格式：Vue.delete( target, key )    target: 可以是对象或数组，key : 可以是字符串或数字     -->
+</head>
+<body>
+    <div id="app">
+      <p style="font-size:25px;">计数器: {{ products.id }}</p>
+      <button @click="products.id++" style="font-size: 25px">点我</button>
+    </div>
+    <script type="text/javascript">
+      var myproduct = {"id":1,name:"book","price":"20.00"};
+      var vm = new Vue({
+        el:'#app',
+        data:{
+          counter: 1,
+          products:myproduct
+        }
+      });
+      Vue.delete(myproduct,'price');
+      console.log(vm);
+      vm.$watch('counter',function (nval,oval) {
+        alert('计数器值的变化: ' + oval + '变为' + nval + '!');
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定：class 与 style 是 HTML 元素的属性，用于设置元素的样式，我们可以用 v-bind 来设置样式属性</title>
+    <!-- Vue.js v-bind 在处理 class 和 style 时， 专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。 -->
+    <script src="../../js/vue.js"></script>
+</head>
+
+<style>
+  .active{
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+</style>
+
+<body>
+  <div id="app01">
+    <div v-bind:class="{active: isActive}"></div>
+  </div>
+
+  <!-- 实例中将 isActive 设置为 true 显示了一个绿色的 div 块，如果设置为 false 则不显示 -->
+  <script>
+    new Vue({
+      el:'#app01',
+      data:{
+        isActive: true
+      }
+    });
+  </script>
+</body>
+</html>

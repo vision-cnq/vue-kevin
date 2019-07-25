@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>组件：全局组件，注册一个简单的全局组件runoob并使用它。</title>
+    <!-- 组件(component)是vue.js最强大的功能之一，组件可以扩展HTML元素，封装可重用的代码
+       tagName为组件名，options为配置选项，注册后，可以使用以下方式来调用组件 -->
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app01">
+    <runoob></runoob>
+  </div>
+  <div id="app02">
+    <runoob></runoob>
+  </div>
+  <script>
+    // 注册全局组件
+    Vue.component('runoob',{
+      template:'<h1>自定义组件!</h1>'
+    })
+    // 创建根实例
+    new Vue({
+      el:'#app01'
+    })
+    // 创建根实例，因为组件是全局的所以不管哪个实例都可以使用
+    new Vue({
+      el:'#app02'
+    })
+  </script>
+</body>
+</html>

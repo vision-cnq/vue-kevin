@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法：指令带有v-前缀的特殊属性，过滤器</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app08">
+    <!-- 过滤器函数接受表达式的值作为第一个参数,该实例对输入的字符串的第一个字母转为大写 -->
+    <p>{{message | capitalize}}</p>
+  </div>
+
+<script>
+  new Vue({
+    el:'#app08',
+    data:{
+      message:'kevin'
+    },
+    filters:{
+      capitalize:function(value){
+        if(!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+    }
+  })
+</script>
+</body>
+</html>

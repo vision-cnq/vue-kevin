@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法：插入值，文本、HTML、属性</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+
+  <div id="app01">
+    <!-- 普通输出文本代码 -->
+    <p>{{message}}</p>
+  </div>
+  <div id="app02">
+    <!-- 用v-html输出html的代码 -->
+    <div v-html="message"></div>
+  </div>
+  <div id='app03'>
+    <!-- 判断class1的值，如果为true使用class1类的样式，否则不使用该类 -->
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
+    <br><br>
+    <div v-bind:class="{'class1': use}">
+      v-bind:class 指令
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    new Vue({
+      el:'#app01',
+      data:{
+        message:'普通输出文本'
+      }
+    });
+
+    new Vue({
+      el: '#app02',
+      data:{message : '<h1>使用v-html输出html</h1>'}
+
+    });
+
+    new Vue({
+      el: '#app03',
+      data:{
+        use: false
+      }
+    });
+
+  </script>
+</body>
+</html>

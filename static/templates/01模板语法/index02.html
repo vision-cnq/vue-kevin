@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index02</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="vue_02">
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>Alexa : {{alexa}}</h1>
+  </div>
+  <script type="text/javascript">
+
+    // 数据对象
+    var data = {site:"菜鸟教程", url:"www.runoob.com", alexa:10000};
+    var vm = new Vue({
+        el: '#vue_02',
+        data: data
+    })
+
+    // 引用相同的对象
+    document.write(vm.site === data.site) // true
+    document.write("<br>")
+
+    // 设置属性也会影响到原始数据
+    vm.site = "Runoob"
+    document.write(data.site + "<br>")  // Runoob
+
+    data.alexa = 1234
+    document.write(vm.alexa)  //1234
+
+  </script>
+</body>
+</html>

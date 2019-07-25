@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.set: 运行过程中实现属性的添加</title>
+    <script src="../../js/vue.js"></script>
+    <!-- Vue 不允许在已经创建的实例上动态添加新的根级响应式属性。
+      Vue 不能检测到对象属性的添加或删除，最好的方式就是在初始化实例前声明根级响应式属性，哪怕只是一个空值。
+      如果我们需要在运行过程中实现属性的添加或删除，则可以使用全局 Vue，Vue.set 和 Vue.delete 方法。 -->
+    <!-- Vue.set 方法用于设置对象的属性，它可以解决 Vue 无法检测添加属性的限制
+         Vue.set( target, key, value )    target: 可以是对象或数组，key : 可以是字符串或数字，value: 可以是任何类型
+    -->
+</head>
+<body>
+  <div id="app">
+    <p style="font-size:25px;">计数器: {{ products.id }}</p>
+    <button @click="products.id++" style="font-size: 25px;">点我</button>
+  </div>
+  <script type="text/javascript">
+    // 定义变量
+    var myproduct = {"id":1,name:"book","price":"20.00"};
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        counter: 1,
+        products: myproduct   // 将变量赋值给data
+      }
+    });
+    // 给data中的products多添加一个属性，但是这样添加的话qty没有set/get方法，无法通过添加Vue对象来实现响应
+    //vm.products.qty="1";
+    Vue.set(myproduct,'qty',1);   // 这样添加则可以
+    console.log(vm);
+    vm.$watch('counter',function (nval,oval) {
+      alert('计数器值的变化: ' + oval + '变为' + nval + '!');
+    });
+  </script>
+</body>
+</html>

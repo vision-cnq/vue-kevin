@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单：演示了 input 和 textarea 元素中使用 v-model 实现双向数据绑定。案例：输入框</title>
+    <!-- 用 v-model 指令在表单控件元素上创建双向数据绑定，v-model 会根据控件类型自动选取正确的方法来更新元素 -->
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+  <div id="app01">
+    <p>input元素: </p>
+    <input v-model="message" placeholder="编辑我...">
+    <p>消息是:{{message}}</p>
+
+    <p>textarea 元素: </p>
+    <p style="with-space: pre">{{message2}}</p>
+    <textarea v-model="message2" placeholder="多行文本输入..."></textarea>
+  </div>
+
+  <script>
+    // 输入框的双向数据绑定
+    new Vue({
+      el:'#app01',
+      data:{
+        message:'KEVIN',
+        message2:'学习'
+      }
+    });
+  </script>
+
+</body>
+</html>

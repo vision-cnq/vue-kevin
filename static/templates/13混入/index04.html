@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全局混入</title>
+    <script src="../../js/vue.js"></script>
+    <!-- 也可以全局注册混入对象。注意使用！ 一旦使用全局混入对象，将会影响到 所有 之后创建的 Vue 实例。使用恰当时，可以为自定义对象注入处理逻辑。 -->
+    <!-- 谨慎使用全局混入对象，因为会影响到每个单独创建的 Vue 实例 (包括第三方模板)。 -->
+</head>
+<body>
+    <script type="text/javascript">
+      // 为自定义的选项，'myOption'注入一个处理器
+      Vue.mixin({
+        created:function () {
+          var myOption = this.$options.myOption
+          if (myOption) {
+            document.write(myOption)
+          }
+        }
+      })
+
+      new Vue({
+        myOption:'hello!'
+      })
+
+    </script>
+</body>
+</html>
